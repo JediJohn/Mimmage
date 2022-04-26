@@ -1,0 +1,33 @@
+//GLOBAL OPT
+$primary-dark-blue: #1e4ace;
+$secondary-light-blue: #DFEDF1;
+$content-height: 60vh;
+$max-screen-width: 70rem;
+$vertical-line-margin: 2rem;
+$vertical-line-width: .15rem;
+
+
+.verticalLine {
+    border-right: $vertical-line-width solid $primary-dark-blue;
+    opacity: .5;
+    height: $content-height;
+    margin: 0 $vertical-line-margin;
+}
+
+.contentSection {
+    display: flex;
+    margin: 1rem;
+}
+
+.title{
+    color: $primary-dark-blue;
+    margin: 2vh auto 0 auto;
+}
+
+.passageMainLayout {
+    width: 90vw;
+    height:$content-height;
+    margin: 0 auto;
+    text-align: center;
+    max-width: $max-screen-width;
+}

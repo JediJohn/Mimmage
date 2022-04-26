@@ -1,0 +1,28 @@
+// Globals
+$segment-view-width: 20vw;
+$text-view-width: 80vw;
+
+.segmentPill {
+    border-radius: 4px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-height: 2rem;
+    text-align: start;
+    padding: .3rem;
+    margin: .3rem;
+}
+
+.segmentContainer {
+    width: $segment-view-width;
+    overflow-y:auto;
+    text-align: end;
+}
+
+
+.textSection {
+    flex-wrap:wrap;
+    overflow-y:auto;
+    width:$text-view-width;
+    text-align: left;
+}

@@ -1,0 +1,33 @@
+//Globals
+$primary-dark-blue: #1e4ace;
+$secondary-light-blue: #DFEDF1;
+
+
+
+$segment-view-width: 20vw;
+
+$content-height: 60vh;
+
+$vertical-line-margin: 2rem;
+$vertical-line-width: .15rem;
+
+
+
+
+.textSections {
+    padding:1px;
+    margin: 2px 0px;
+}
+
+.verseContainer {
+    font-size: large;
+    line-height: 1.5em;
+}
+
+.verseText {
+    margin: .1em 0px;
+    padding: .2em;
+    height:2em;
+    vertical-align: middle;
+    display: inline-block;
+}

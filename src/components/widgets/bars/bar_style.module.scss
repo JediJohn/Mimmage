@@ -1,0 +1,42 @@
+// Globals
+$primary-dark-blue: #1e4ace;
+$text-view-width: 80vw;
+$segment-view-width: 20vw;
+$vertical-line-margin: 2rem;
+$vertical-line-width: .15rem;
+
+
+
+.overBar {
+    display: flex;
+    text-align: start;
+    margin: 0 1rem;
+}
+
+.verticalLineSpacing {
+    margin: 0 $vertical-line-margin+$vertical-line-width;
+}
+
+.segmentsTitle {
+    width: $segment-view-width;
+    justify-self: flex-start;
+    color: $primary-dark-blue
+}
+
+.textSectionTitle {
+    width: $text-view-width;
+    display: flex;
+    justify-content: space-between;
+    color: $primary-dark-blue
+}
+
+.underNavButtons {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.barButton {
+    height: fit-content;
+    align-self: center;
+}
