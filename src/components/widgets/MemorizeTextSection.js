@@ -26,7 +26,8 @@ const MemorizeTextSection = () => {
                 rounded.right = TEXT_SECTION_BORDER_RADIUS
             }
             return <span style={{'backgroundColor':tDiv.color,
-                            'borderRadius': `${rounded.left} ${rounded.right} ${rounded.right} ${rounded.left}` }}>
+                            'borderRadius': `${rounded.left} ${rounded.right} ${rounded.right} ${rounded.left}` }}
+                         key={`${index}_${word}`}   >
                 {`${word} `}
             </span>
             }

@@ -8,36 +8,26 @@ import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
 import RepeatsPerSegment from '../memorize_play/RepeatsPerSegment';
 import PlaybackSpeed from '../memorize_play/PlaybackSpeed'
-import SelectModeRadioButtons from '../memorize_play/SelectModeRadioButtons.';
 
 import styles from './bar_style.module.scss'
 import { setPlayMode } from '../../../redux/reducers/playMode.reducer';
 
-const MemorizeOverBar = () => {
-    const readMode = useSelector((state) => state.readMode.value)
+const MemorizePlayModeOverBar = () => {
+    const repeatsPerSegment = useSelector((state)=>state.repeatsPerSegment.value)
     const playMode = useSelector((state) => state.playMode.value)
     const dispatch = useDispatch()
     return (
         <div className={styles.overBar}>
-            {/* <span className={styles.segmentsTitle}><h3>Segments</h3></span> */}
             <span className={styles.verticalLineSpacing}></span>
             <span className={styles.textSectionTitle}>
-                {/* <h3>Text to Memorize</h3> */}
                 
-                <RepeatsPerSegment></RepeatsPerSegment>
+                <span>{3}/{repeatsPerSegment}</span>
                 <PlaybackSpeed></PlaybackSpeed>
-                {/* <SelectModeRadioButtons></SelectModeRadioButtons> */}
                 <span>
-                    <IconButton disabled={readMode==="texttospeech"}
-                                aria-label="record" 
-                                style={{color:readMode==="human"?"red":"gray"}}
-                                onClick={()=>dispatch(setPlayMode('recording'))}>
-                        <FiberManualRecordIcon />
+                    <IconButton onClick={()=>dispatch(setPlayMode('stopped'))} aria-label="stop">
+                        <StopIcon style={{color:"red"}} />
                     </IconButton>
-                    <IconButton disabled aria-label="stop">
-                        <StopIcon style={{color:"gray"}} />
-                    </IconButton>
-                    <IconButton  onClick={()=>dispatch(setPlayMode('playing'))} aria-label="play">
+                    <IconButton disabled aria-label="play">
                         <PlayArrowIcon style={{color:"green"}} />
                     </IconButton>
                 </span>
@@ -48,4 +38,4 @@ const MemorizeOverBar = () => {
     )
 }
 
-export default MemorizeOverBar
+export default MemorizePlayModeOverBar

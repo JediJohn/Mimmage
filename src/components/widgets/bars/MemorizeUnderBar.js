@@ -15,7 +15,7 @@ const MemorizeUnderBar = () => {
         <div  className={styles.underNavButtons}>
             <Button variant="outlined" color="primary" onClick={()=>dispatch(prevStep())}>{'< Choose Segments'}</Button>
             <StageStepper></StageStepper>
-            <Button variant="contained">Save</Button>
+            <Button variant="contained" disabled>Save</Button>
         </div>
     )
 }
