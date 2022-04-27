@@ -4,7 +4,6 @@ import styles from './layout_style.module.scss'
 const SideBySideLayout = ({ title, OverBar, TextSection, UnderBar }) => {
     return (
         <div className={styles.passageMainLayout}>
-            <h1 className={styles.title}>{title}</h1>
             <OverBar></OverBar>
             <div className={styles.contentSection}>
                 <MemSegments />

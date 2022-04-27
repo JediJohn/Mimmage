@@ -8,7 +8,7 @@ import { addSegmentColor } from "../../redux/reducers/segmentColors.reducer";
 import styles from './widget_style.module.scss'
 
 const INIT_COLOR = "#FF8080";
-const TEXT_SECTION_BORDER_RADIUS = "4px"
+export const TEXT_SECTION_BORDER_RADIUS = "4px"
 const INIT_KEY = "-1_0"
 
 const PrepareTextSection = ({ verseText }) => {
@@ -45,7 +45,9 @@ const PrepareTextSection = ({ verseText }) => {
 
   const generateColor = () => {
     dispatch(addSegmentColor(currColor))
+    const color = currColor
     setCurrColor(randomColor({ hue: 'random', luminosity: 'light' }))
+    return color
   }
 
   const idIsGreater = (id1, id2) => {
@@ -77,7 +79,7 @@ const PrepareTextSection = ({ verseText }) => {
     return null
   }
 
-  const generateSectionStrings = (oldIntervals, id) => {
+  const generateSectionStrings = (oldIntervals, id, color) => {
     let intervals = [...oldIntervals, id]
     // Create continuous strings based on the selected text from the word array
     let previousKey = oldIntervals.length === 0 ? INIT_KEY : oldIntervals[oldIntervals.length - 1]
@@ -87,6 +89,7 @@ const PrepareTextSection = ({ verseText }) => {
     const textDivisionStrings = [...textDivisions, {
       beginKey: previousKey,
       endKey: id,
+      color: color,
       text: intervalArr.map(item => item.text).join(" ")
     }]
     setSegmentIntervals(intervals)
@@ -97,12 +100,7 @@ const PrepareTextSection = ({ verseText }) => {
     if (segmentIntervals.length > 0 && idContainingSegmentIndex(id)) {
       return
     }
-    generateColor()
-    generateSectionStrings(segmentIntervals, id)
-  }
-
-  const getSegmentArrayColor = (segIndex) => {
-    return segmentColors[segIndex]
+    generateSectionStrings(segmentIntervals, id, generateColor())
   }
 
   const getRoundedSectionBorders = (item) => {
@@ -131,7 +129,7 @@ const PrepareTextSection = ({ verseText }) => {
       let segIndex = null
       if (segIndex = idContainingSegmentIndex(item.id)) {
         // Already selected text
-        bgColor = getSegmentArrayColor(segIndex);
+        bgColor = segmentColors[segIndex];
       } else if (!idIsGreater(item.id, activeSeparator)) {
         // New text to be highlighted
         bgColor = currColor;
