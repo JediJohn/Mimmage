@@ -28,12 +28,10 @@ const MemorizePlayModeOverBar = () => {
                         <StopIcon style={{color:"red"}} />
                     </IconButton>
                     <IconButton disabled aria-label="play">
-                        <PlayArrowIcon style={{color:"green"}} />
+                        <PlayArrowIcon style={{color:"gray"}} />
                     </IconButton>
-                </span>
-                    
+                </span> 
             </span>
-            
         </div>
     )
 }
