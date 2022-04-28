@@ -5,6 +5,7 @@ import MemorizeOverBar from '../widgets/bars/MemorizeOverBar';
 import MemorizeUnderBar from '../widgets/bars/MemorizeUnderBar';
 import MemorizeTextSection from '../widgets/MemorizeTextSection';
 import MemorizePlayModeOverBar from '../widgets/bars/MemorizePlayModeOverBar'
+import PlayTextSection from '../widgets/PlayTextSection'
 
 const MemorizeView = () => {
     const playMode = useSelector((state) => state.playMode.value)
@@ -19,10 +20,18 @@ const MemorizeView = () => {
             return "Error"
         }
     }
+    
+    const getTextSection = () => {
+        if (playMode === "playing"){
+            return PlayTextSection
+        } else {
+            return MemorizeTextSection
+        }
+    }
     return (
         <SideBySideLayout
             OverBar={getOverBar()}
-            TextSection={MemorizeTextSection}
+            TextSection={getTextSection()}
             UnderBar={MemorizeUnderBar}></SideBySideLayout>
     )
 }
