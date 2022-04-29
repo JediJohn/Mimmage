@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Button } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import StopIcon from '@mui/icons-material/Stop';
@@ -8,7 +7,7 @@ import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
 import RepeatsPerSegment from '../memorize_play/RepeatsPerSegment';
 import PlaybackSpeed from '../memorize_play/PlaybackSpeed'
-import SelectModeRadioButtons from '../memorize_play/SelectModeRadioButtons.';
+import VolumeSlider from '../memorize_play/VolumeSlider';
 
 import styles from './bar_style.module.scss'
 import { setPlayMode } from '../../../redux/reducers/playMode.reducer';
@@ -20,14 +19,12 @@ const MemorizeOverBar = () => {
     const dispatch = useDispatch()
     return (
         <div className={styles.overBar}>
-            {/* <span className={styles.segmentsTitle}><h3>Segments</h3></span> */}
             <span className={styles.verticalLineSpacing}></span>
             <span className={styles.textSectionTitle}>
-                {/* <h3>Text to Memorize</h3> */}
 
                 <RepeatsPerSegment></RepeatsPerSegment>
                 <PlaybackSpeed></PlaybackSpeed>
-                {/* <SelectModeRadioButtons></SelectModeRadioButtons> */}
+                <VolumeSlider></VolumeSlider>
                 <span>
                     <IconButton disabled={readMode === "texttospeech"}
                         aria-label="record"
