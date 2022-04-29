@@ -24,12 +24,18 @@ const MemSegments = () => {
     return segmentIsActivePlay(index)?styles.segmentPillActive:styles.segmentPillOther
   }
 
+  const clickSegment = (index) => {
+    if(index === activePlaySegment){return}
+    window.speechSynthesis.cancel()
+    dispatch(setActivePlaySegment(index))
+  }
+
   const segmentPills = textDivisions.map((textDiv, index) =>
     <div className={`${styles.segmentPill} ${getActiveSegmentStyle(index)}`}
       style={{ backgroundColor: segmentColors[index] }}
       key={`${textDiv.text}_${segmentColors[index]}`}
       disabled={segmentIsActivePlay(index)}
-      onClick={()=>dispatch(setActivePlaySegment(index))}>
+      onClick={()=>clickSegment(index)}>
       {textDiv.text}
     </div>
   )
