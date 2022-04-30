@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
 import textDivisionsReducer from './reducers/textDivisionsSlice.reducer'
-import segmentColorsReducer from './reducers/segmentColors.reducer'
 import activeStepReducer from './reducers/activeStep.reducer'
 import readModeReducer from './reducers/readMode.reducer'
 import repeatsPerSegment from './reducers/repeatsPerSegment.reducer'
@@ -14,7 +13,6 @@ import InputTextReducer from './reducers/InputText.reducer'
 export const store = configureStore({
   reducer: {
     textDivisions: textDivisionsReducer,
-    segmentColors: segmentColorsReducer,
     activeStep: activeStepReducer,
     readMode: readModeReducer,
     repeatsPerSegment: repeatsPerSegment,

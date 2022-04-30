@@ -4,7 +4,6 @@ import { ReactSortable } from "react-sortablejs";
 import randomColor from "randomcolor";
 import { setTextDivisionsArray } from '../../redux/reducers/textDivisionsSlice.reducer'
 import { setTextDivisionsCompleted} from '../../redux/reducers/textDivisionsSlice.reducer'
-import { addSegmentColor, setSegmentColors } from "../../redux/reducers/segmentColors.reducer";
 
 import styles from './widget_style.module.scss'
 import TextWord from "./TextWord";
@@ -22,7 +21,6 @@ const PrepareTextSection = () => {
 
   const textDivisions = useSelector((state) => state.textDivisions.value)
   const prepareTextDivisionsToReset = useSelector((state) => state.inputText.reset)
-  const segmentColors = useSelector((state) => state.segmentColors.value)
   const inputText = useSelector((state) => state.inputText.text)
   
 
@@ -48,17 +46,16 @@ const PrepareTextSection = () => {
   }
 
   const generateColor = () => {
-    dispatch(addSegmentColor(currColor))
     const color = currColor
     setCurrColor(randomColor({ hue: 'random', luminosity: 'light' }))
     return color
   }
 
-  const idContainingSegmentIndex = (id) => {
+  const idContainingSegment = (id) => {
     for (let i in textDivisions) {
       if (id > textDivisions[i].beginKey &&
         id <= textDivisions[i].endKey) {
-        return i
+        return textDivisions[i]
       }
     }
     return null
@@ -86,7 +83,7 @@ const PrepareTextSection = () => {
   }
 
   const textClick = (id) => {
-    if (segmentIntervals.length > 0 && idContainingSegmentIndex(id)) {
+    if (segmentIntervals.length > 0 && idContainingSegment(id)) {
       return
     }
     generateSectionStrings(segmentIntervals, id, generateColor())
@@ -95,10 +92,10 @@ const PrepareTextSection = () => {
   const sortableArray = sortablePassage.map(item => {
     if (!item || !item.id) { return }
     let bgColor = "inherit"
-    let segIndex = null
-    if (segIndex = idContainingSegmentIndex(item.id)) {
+    let seg = null
+    if (seg = idContainingSegment(item.id)) {
       // Already selected text
-      bgColor = segmentColors[segIndex];
+      bgColor = seg.color;
     } else if (item.id <= activeSeparator) {
       // New text to be highlighted
       bgColor = currColor;
@@ -122,7 +119,6 @@ const PrepareTextSection = () => {
     setCurrColor(INIT_COLOR)
     dispatch(setTextDivisionsArray([]))
     dispatch(setTextDivisionsCompleted(false))
-    dispatch(setSegmentColors([]))
     initPassageArray()
 
   }

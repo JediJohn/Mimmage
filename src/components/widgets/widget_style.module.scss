@@ -15,6 +15,11 @@ $primary-dark-blue: #1e4ace;
     margin: .3rem;
 }
 
+.segmentPillPrep {
+    display:flex;
+    justify-content:space-between;
+}
+
 .segmentPillOther {
     transition: 0.3s;
 }

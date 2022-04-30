@@ -1,7 +1,6 @@
 import TextField from '@mui/material/TextField';
 import { useDispatch, useSelector } from 'react-redux';
 import {setInputText} from '../../redux/reducers/InputText.reducer'
-import { setSegmentColors } from '../../redux/reducers/segmentColors.reducer';
 import { setTextDivisionsArray, setTextDivisionsCompleted } from '../../redux/reducers/textDivisionsSlice.reducer';
 import styles from './widget_style.module.scss'
 
@@ -14,7 +13,6 @@ const InputTextArea = () => {
         dispatch(setInputText(e.target.value))
         dispatch(setTextDivisionsArray([]))
         dispatch(setTextDivisionsCompleted(false))
-        dispatch(setSegmentColors([]))
     }
     return (
         <div className={styles.textAreaContainer}>
