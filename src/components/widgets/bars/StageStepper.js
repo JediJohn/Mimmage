@@ -8,6 +8,9 @@ const StageStepper = () => {
     return (
         
         <Stepper activeStep={activeStep}>
+            <Step key={0}>
+                <StepLabel>Input Text</StepLabel>
+            </Step>
             <Step key={1}>
                 <StepLabel>Choose Segments</StepLabel>
             </Step>

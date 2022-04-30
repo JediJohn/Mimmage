@@ -56,4 +56,19 @@ $primary-dark-blue: #1e4ace;
     overflow-y:auto;
     width:$text-view-width;
     text-align: left;
+    height: $content-height;
 }
+
+.inputTextArea {
+    height: $content-height;
+    width:-webkit-fill-available;
+    // overflow-y: auto;
+}
+
+.textAreaContainer {
+    width: -webkit-fill-available;
+    margin: 2rem 0;
+    text-align: start;
+}
+
+

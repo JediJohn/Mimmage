@@ -4,7 +4,7 @@ const initialState = {
   value: 1.0
 }
 
-export const playbackSpeed = createSlice({
+const playbackSpeed = createSlice({
   name: 'playbackSpeed',
   initialState,
   reducers: {

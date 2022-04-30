@@ -4,7 +4,7 @@ const initialState = {
   value: 24
 }
 
-export const repeatsPerSegment = createSlice({
+const repeatsPerSegment = createSlice({
   name: 'repeatsPerSegment',
   initialState,
   reducers: {

@@ -4,7 +4,7 @@ const initialState = {
   value: [],
 }
 
-export const segmentColors = createSlice({
+const segmentColors = createSlice({
   name: 'segmentColors',
   initialState,
   reducers: {

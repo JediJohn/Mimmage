@@ -1,11 +1,10 @@
 import { Button } from '@mui/material';
-
+import { useDispatch } from 'react-redux';
+import { resetTextPrep } from '../../../redux/reducers/InputText.reducer';
 import styles from './bar_style.module.scss'
 
 const PrepareOverBar = () => {
-    const resetSectionSelections = () => {
-        window.location.reload(false)
-    }
+    const dispatch = useDispatch()
     return (
         <div className={styles.overBar}>
             <span className={styles.segmentsTitle}><h3>Segments</h3></span>
@@ -16,7 +15,7 @@ const PrepareOverBar = () => {
                     color="error"
                     variant='outlined'
                     className={styles.barButton}
-                    onClick={() => resetSectionSelections()}>Reset</Button>
+                    onClick={() => dispatch(resetTextPrep())}>Reset</Button>
             </span>
         </div>
     )

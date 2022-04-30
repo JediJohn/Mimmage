@@ -8,6 +8,8 @@ import playbackSpeed from './reducers/playbackSpeed.reducer'
 import playModeReducer from './reducers/playMode.reducer'
 import activePlaySegmentReducer from './reducers/activePlaySegment.reducer'
 import volumeReducer from './reducers/volume.reducer'
+import currentRepeatNumberReducer from './reducers/currentRepeatNumber.reducer'
+import InputTextReducer from './reducers/InputText.reducer'
 
 export const store = configureStore({
   reducer: {
@@ -20,5 +22,7 @@ export const store = configureStore({
     playMode: playModeReducer,
     activePlaySegment: activePlaySegmentReducer,
     volume: volumeReducer,
+    currentRepeatNumber: currentRepeatNumberReducer,
+    inputText: InputTextReducer,
   },
 })

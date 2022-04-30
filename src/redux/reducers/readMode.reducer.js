@@ -4,7 +4,7 @@ const initialState = {
   value: 'texttospeech' // ['texttospeech', 'human']
 }
 
-export const readMode = createSlice({
+const readMode = createSlice({
   name: 'readMode',
   initialState,
   reducers: {

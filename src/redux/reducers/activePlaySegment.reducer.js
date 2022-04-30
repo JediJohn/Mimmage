@@ -4,7 +4,7 @@ const initialState = {
   value: null
 }
 
-export const activePlaySegment = createSlice({
+const activePlaySegment = createSlice({
   name: 'activePlaySegment',
   initialState,
   reducers: {

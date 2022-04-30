@@ -4,7 +4,7 @@ const initialState = {
   value: 'stopped' // 'stopped', 'playing', 'recording'
 }
 
-export const playMode = createSlice({
+const playMode = createSlice({
   name: 'playMode',
   initialState,
   reducers: {

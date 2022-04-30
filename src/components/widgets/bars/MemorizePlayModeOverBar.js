@@ -11,6 +11,7 @@ import { setPlayMode } from '../../../redux/reducers/playMode.reducer';
 
 const MemorizePlayModeOverBar = () => {
     const repeatsPerSegment = useSelector((state) => state.repeatsPerSegment.value)
+    const currentRepeatNumber = useSelector((state) => state.currentRepeatNumber.value)
     const dispatch = useDispatch()
 
     const stop = () => {
@@ -22,7 +23,7 @@ const MemorizePlayModeOverBar = () => {
             <span className={styles.verticalLineSpacing}></span>
             <span className={styles.textSectionTitle}>
 
-                <span>{3}/{repeatsPerSegment}</span>
+                <span>{currentRepeatNumber}/{repeatsPerSegment}</span>
                 <PlaybackSpeed></PlaybackSpeed>
                 <VolumeSlider></VolumeSlider>
                 <span>

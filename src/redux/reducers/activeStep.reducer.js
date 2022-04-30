@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  value: 1 // 0. 'choosetext' 1. 'prepare' 2. 'memorize'
+  value: 0 // 0. 'choosetext' 1. 'prepare' 2. 'memorize'
 }
 
-export const activeStep = createSlice({
+const activeStep = createSlice({
   name: 'activeStep',
   initialState,
   reducers: {

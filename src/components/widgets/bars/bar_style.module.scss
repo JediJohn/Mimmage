@@ -39,4 +39,26 @@ $vertical-line-width: .15rem;
 .barButton {
     height: fit-content;
     align-self: center;
+    
+}
+
+.mainNav {
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+
+.mainNavLogo {
+    margin-left: 1rem;
+}
+
+.mainNavTitle {
+    // width: -webkit-fill-available;
+    // align-self: center;
+}
+
+.loginButtons {
+    
 }
