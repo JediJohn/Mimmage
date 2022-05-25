@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  value: 50,
+  value: 100,
 }
 
 const volume = createSlice({

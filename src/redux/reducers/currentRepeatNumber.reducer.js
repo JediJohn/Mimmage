@@ -11,10 +11,13 @@ const currentRepeatNumber = createSlice({
     setCurrentRepeatNumber: (state, action) => {
       state.value = action.payload
     },
+    incrementCurrentRepeatNumber: (state) => {
+      state.value += 1
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { setCurrentRepeatNumber } = currentRepeatNumber.actions
+export const { setCurrentRepeatNumber, incrementCurrentRepeatNumber } = currentRepeatNumber.actions
 
 export default currentRepeatNumber.reducer

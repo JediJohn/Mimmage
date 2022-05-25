@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setCurrentRepeatNumber } from "../../redux/reducers/currentRepeatNumber.reducer";
+import { incrementCurrentRepeatNumber, setCurrentRepeatNumber } from "../../redux/reducers/currentRepeatNumber.reducer";
 import { setRepeatsPerSegment } from "../../redux/reducers/repeatsPerSegment.reducer";
 
 import { TEXT_SECTION_BORDER_RADIUS } from './PrepareTextSection'
@@ -20,37 +20,41 @@ const PlayTextSection = () => {
 
     const dispatch = useDispatch()
     const speechObj = new SpeechSynthesisUtterance()
+    const synth = window.speechSynthesis;
 
-    speechObj.addEventListener('boundary', (event) => {
+    const handleBoundary = (event) => {
         // console.log(event.charIndex, event.elapsedTime, event.name)
         if (event.name === "word") {
             setDisplayedTextIndex(event.charIndex)
         }
-    })
+    }
 
-    speechObj.addEventListener('end', (event) => {
+    const handleEnd = () => {
+        console.log(`got to end of one seg... ${currentRepeatNumber} < ${repeatsPerSegment} is:`,currentRepeatNumber < repeatsPerSegment)
         if(currentRepeatNumber < repeatsPerSegment){
-            dispatch(setCurrentRepeatNumber(currentRepeatNumber + 1))
-           
-            // stopText()
+            dispatch(incrementCurrentRepeatNumber(currentRepeatNumber + 1))
+            synth.cancel()
             playText(textDivisions[activePlaySegment].text)
         } else {
-            resetState()
+            console.log("got to end and should cancel...")
+            resetRead()
         }
-    })
+    }
+
+
 
     const getVoices = () => { // OS voices get loaded into the browser asynchronously
         return new Promise(resolve => {
-            let voices = window.speechSynthesis.getVoices()
+            let voices = synth.getVoices()
             if (voices.length) {
               resolve(voices)
               return
             }
             const voiceschanged = () => {
-              voices = window.speechSynthesis.getVoices()
+              voices = synth.getVoices()
               resolve(voices)
             }
-            window.speechSynthesis.onvoiceschanged = voiceschanged
+            synth.onvoiceschanged = voiceschanged
         })
     }
 
@@ -78,34 +82,40 @@ const PlayTextSection = () => {
     }
 
     const playText = async (text) => {
-        if(window.speechSynthesis.paused && speechSynthesis.speaking){
-            return speechSynthesis.resume()
+        if(synth.paused && synth.speaking){
+            return synth.resume()
         }
         const voices = await getVoices()
         speechObj.voice = voices[1] || voices[0]
         speechObj.volume = volume / 100.0
         speechObj.rate = playbackSpeed
         speechObj.text = text
-        window.speechSynthesis.speak(speechObj)
+        speechObj.lang = 'en-US'
+        synth.speak(speechObj)
     }
 
-    const stopText = () => {
-        speechSynthesis.resume()
-        speechSynthesis.cancel()
+    const stopRead = () => {
+        console.log("stop read is called")
+        speechObj.removeEventListener('boundary', handleBoundary)
+        speechObj.removeEventListener('end', handleEnd)
+        synth.cancel()
     }
 
-    const resetState = () => {
-        speechSynthesis.resume()
-        speechSynthesis.cancel()
+    const resetRead = () => {
         setDisplayedTextIndex(0)
         dispatch(setCurrentRepeatNumber(1))
-        speechObj.removeEventListener('boundary')
-        speechObj.removeEventListener('end')
+        stopRead()
     }
 
     useEffect(() => {
-        stopText()
+        console.log("INITIAL useEffect was called!!!")
+        speechObj.addEventListener('boundary', handleBoundary)
+        speechObj.addEventListener('end', handleEnd)
         playText(textDivisions[activePlaySegment].text)
+        return () => {
+            // cleanup
+            resetRead()
+        }
     }, [activePlaySegment, textDivisions, volume, playbackSpeed])
 
     return (
@@ -117,8 +127,5 @@ const PlayTextSection = () => {
     )
 }
 
-export const reset = () => {
-    PlayTextSection.resetState()
-}
 export default PlayTextSection;
 
