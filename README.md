@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# Welcome to Mimmage!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## What is Mimmage?
 
-## Available Scripts
+Mimmage is a web application with the goal to help people memorize passages of text.  The strength of Mimmage over other methods of memorization is that mimmage can be used **hands free**.  Even if the only time a person has to memorize is during their morning commute to work, Mimmage is there to help.
 
-In the project directory, you can run:
+## How it Works
 
-### `npm start`
+The user takes a block of text and breaks it up into small, easily repeatable segments.  Mimmage will then read the segments for the user on loop for as many times as needed (default is 24 times is optimal for a lot of people).  The idea is that the person memorizes by the same method they would use to learn a new language.  Again, once the application is set 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## How to Use Mimmage
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Enter in desired block of text to memorize.
+![Enter text](/readme_pics/enter_text.png)
+2. Hover mouse over where you want to make a separation between segments and click to lock in the segment.
+![Split segments](/readme_pics/split_segments.png)
+3. Customize volume, playback speed, and number of repeats per segment and press the green Play button!
+![Set desired settings](/readme_pics/play_settings.png)
+4. Memorize as you listen to each segment repeat!
+![Memorize text](/readme_pics/play_text.png)
 
-### `npm test`
+## How to Run a Local Dev Server
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository locally.  
+2. Make sure `npm` is installed and install dependencies with:
+`npm install`
+3. Run the dev server with:
+`npm start`
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The dev server should start on `localhost:3000` by default!
