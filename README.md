@@ -1,5 +1,7 @@
 # Welcome to Mimmage!
 
+**URL to Draft of application:** (https://629670cc47df8635317bbcc9--mimmage.netlify.app)
+
 ## What is Mimmage?
 
 Mimmage is a web application with the goal to help people memorize passages of text.  The strength of Mimmage over other methods of memorization is that mimmage can be used **hands free**.  Even if the only time a person has to memorize is during their morning commute to work, Mimmage is there to help.
