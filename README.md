@@ -6,7 +6,7 @@ Mimmage is a web application with the goal to help people memorize passages of t
 
 ## How it Works
 
-The user takes a block of text and breaks it up into small, easily repeatable segments.  Mimmage will then read the segments for the user on loop for as many times as needed (default is 24 times is optimal for a lot of people).  The idea is that the person memorizes by the same method they would use to learn a new language.  Again, once the application is set 
+The user takes a block of text and breaks it up into small, easily repeatable segments.  Mimmage will then read the segments for the user on loop for as many times as needed (default is 24 times is optimal for a lot of people).  The idea is that the person memorizes by the same method they would use to learn a new language.  Again, once the application is set, the user can focus on driving.  There is likely benefit to also following along, but sometimes that is not practical.
 
 ## How to Use Mimmage
 
@@ -18,6 +18,12 @@ The user takes a block of text and breaks it up into small, easily repeatable se
 ![Set desired settings](/readme_pics/play_settings.png)
 4. Memorize as you listen to each segment repeat!
 ![Memorize text](/readme_pics/play_text.png)
+
+## Coming Soon
+
+1. Saving work.  The application is currently just a frontend but soon there will be a backend to save work to a database so the user doesn't have to split segments every refresh.  A JAM stack backend is in the works and should be out within the next few weeks.
+2. Ability for the user to record themselves instead of using the browser's text-to-speech synthesizer.
+3. Replace words with text.  This will be a more hands on feature, but adding visual cues could be quite helpful for visual learners.
 
 ## How to Run a Local Dev Server
 
