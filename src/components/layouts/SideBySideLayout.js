@@ -1,7 +1,7 @@
 import MemSegments from '../widgets/MemSegments';
 import styles from './layout_style.module.scss'
 
-const SideBySideLayout = ({ title, OverBar, TextSection, UnderBar }) => {
+const SideBySideLayout = ({ OverBar, TextSection, UnderBar }) => {
     return (
         <div className={styles.passageMainLayout}>
             <OverBar></OverBar>

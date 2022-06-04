@@ -1,0 +1,14 @@
+
+.textBodyPreview {
+    max-height: 8vh;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, white 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, white 50%, transparent 100%);
+}
+.textOverflow {
+    text-overflow: ellipsis;
+}
+
+.cardLinks {
+    text-decoration: none;
+}
