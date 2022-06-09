@@ -21,8 +21,22 @@ $vertical-line-width: .15rem;
 
 .passageMainLayout {
     width: 90vw;
-    height:$content-height;
+    // height:$content-height;
     margin: 0 auto;
     text-align: center;
-    max-width: $max-screen-width;
+    max-width: 100%;
+}
+
+
+.memoryBoardList {
+    width: 90vw;
+    margin: 0 5vw;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.boardCard {
+    position: relative;
+    margin: 0 1rem 1rem 0;
 }

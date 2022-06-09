@@ -54,6 +54,27 @@ $vertical-line-width: .15rem;
     margin-left: 1rem;
 }
 
+.boardListOverBar {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin: 2vh 0;
+}
+
+.boardBarLink {
+    text-decoration: none;
+    margin-right: 5vw;
+}
+
+.boardCard {
+    margin: 2vh 5vw;
+    
+}
+
+.cardLinkRow {
+    position: relative;
+}
+
 .mainNavTitle {
     // width: -webkit-fill-available;
     // align-self: center;

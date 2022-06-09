@@ -10,5 +10,12 @@ export const MemoryBoardAPI = {
             method: 'get',
             url:`/api/getMemoryBoard/${boardId}`
         })
+    },
+    setTextDivisions: async (boardId, divisions) => {
+        return axios({
+            method: 'put',
+            url:`/api/setTextDivisions/${boardId}`,
+            data:{textDivisions:divisions}
+        })
     }
 }

@@ -8,13 +8,12 @@ import MemorizeTextSection from '../widgets/MemorizeTextSection';
 import MemorizePlayModeOverBar from '../widgets/bars/MemorizePlayModeOverBar'
 import PlayTextSection from '../widgets/PlayTextSection'
 import {MemoryBoardAPI} from '../../api/api'
-import { setTextDivisionsArray } from '../../redux/reducers/textDivisionsSlice.reducer'
 
 
 const MemorizeView = () => {
     const board_id = useParams()
+    const [textDivisions, setTextDivisions] = useState([])
     const playMode = useSelector((state) => state.playMode.value)
-    const dispatch = useDispatch()
     
     const getOverBar = ()=> {
         if (playMode === "playing"){
@@ -35,17 +34,23 @@ const MemorizeView = () => {
             return MemorizeTextSection
         }
     }
+    const setTextDivisionsArray = async (newTextDivs) => {
+        const result = await MemoryBoardAPI.setTextDivisions(board_id, newTextDivs)
+        console.log(result)
+    }
 
     useEffect(async ()=>{
         if(board_id){
             const data = (await MemoryBoardAPI.getMemoryBoard(board_id)).data
-            dispatch(setTextDivisionsArray(data.memoryBoard.textDivisions))
+           setTextDivisions(data.memoryBoard.textDivisions)
         }
     }, [board_id])
     return (
         <SideBySideLayout
             OverBar={getOverBar()}
             TextSection={getTextSection()}
+            textDivisions={textDivisions}
+            setTextDivisionsArray={setTextDivisionsArray}
             UnderBar={MemorizeUnderBar}></SideBySideLayout>
     )
 }

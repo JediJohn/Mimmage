@@ -12,7 +12,7 @@ const activeStep = createSlice({
       state.value = action.payload
     },
     nextStep: (state) => {
-      if (state.value===2){return}
+      if (state.value===1){return}
       state.value += 1
     },
     prevStep: (state) => {

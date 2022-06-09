@@ -24,12 +24,13 @@ function App() {
 
   return (
     <div className="App">
-      <MainNav></MainNav>
+      
       <BrowserRouter>
+        <MainNav></MainNav>
         <Routes>
           <Route path="/" element={<BoardListView/>}></Route>
-          <Route path="/create" element={<TextInputView/>}></Route>
-          <Route path="/edit/:board_id" element={<TextInputView/>}></Route>
+          <Route path="/prepare" element={<PrepareView/>}></Route>
+          <Route path="/edit/:board_id" element={<PrepareView/>}></Route>
           <Route path="/memorize/:board_id" element={<MemorizeView/>}></Route>
         </Routes>
       </BrowserRouter>

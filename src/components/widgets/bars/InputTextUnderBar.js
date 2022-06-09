@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom"
 
 import { Button } from '@mui/material';
 import { nextStep } from '../../../redux/reducers/activeStep.reducer'
@@ -10,15 +11,17 @@ import StageStepper from './StageStepper';
 const InputTextUnderBar = () => {
     const inputTitle = useSelector((state) => state.inputText.title)
     const inputText = useSelector((state) => state.inputText.text)
+    const navigation = useNavigate()
     const dispatch = useDispatch()
     return (
         <div  className={styles.underNavButtons}>
             <Button variant="outlined" onClick={()=>window.location.reload(false)} >Clear</Button>
-            <StageStepper></StageStepper>
             <Button 
                 variant="contained" 
                 disabled={inputTitle==="" || inputText===""}
-                color="primary" onClick={()=>dispatch(nextStep())}>{'Begin >'}</Button>
+                color="primary" onClick={()=>{
+                    navigation("/prepare")
+                }}>Create</Button>
         </div>
     )
 }

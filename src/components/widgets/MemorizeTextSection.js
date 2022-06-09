@@ -1,15 +1,9 @@
-import { useDispatch, useSelector } from "react-redux";
-
 import {TEXT_SECTION_BORDER_RADIUS} from './PrepareTextSection'
 
 import styles from './widget_style.module.scss'
 
 
-const MemorizeTextSection = () => {
-
-    const textDivisions = useSelector((state) => state.textDivisions.value)
-
-    const dispatch = useDispatch()
+const MemorizeTextSection = ({textDivisions}) => {
 
     const formatWord = (tDiv) => {
         const words = tDiv.text.split(' ').filter(w => w !== "")

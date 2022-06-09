@@ -10,30 +10,32 @@ import styles from './memory_board_style.module.scss'
 
 const MemoryBoardCard = ({title, text, board_id, image}) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        alt="Memory board screenshot"
-        height="140"
-        image={image}
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {title}
-        </Typography>
-        <Typography className={styles.textBodyPreview} variant="body2" color="text.secondary">
-          {text}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Link className={styles.cardLinks} to={`/edit/${board_id}`}>
-            <Button size="small">Edit</Button>
-        </Link>
-        <Link className={styles.cardLinks} to={`/memorize/${board_id}`}>
-            <Button size="small"> Start Memorizing</Button>
-        </Link>
-      </CardActions>
-    </Card>
+    <span>
+      <Card sx={{ width: 250, height: 300 }}>
+        <CardMedia
+          component="img"
+          alt="Memory board screenshot"
+          height="140"
+          image={image}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {title}
+          </Typography>
+          <Typography className={styles.textBodyPreview} variant="body2" color="text.secondary">
+            {text}
+          </Typography>
+        </CardContent>
+        <div className={styles.boardCardActions}>
+          <Link className={styles.cardLinks} to={`/edit/${board_id}`}>
+              <Button size="small">Edit</Button>
+          </Link>
+          <Link className={styles.cardLinks} to={`/memorize/${board_id}`}>
+              <Button size="small">Memorize</Button>
+          </Link>
+        </div>
+      </Card>
+    </span>
   );
 }
 

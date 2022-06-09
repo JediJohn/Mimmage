@@ -14,9 +14,9 @@ const StageStepper = () => {
             <Step key={1}>
                 <StepLabel>Choose Segments</StepLabel>
             </Step>
-            <Step key={2}>
+            {/* <Step key={2}>
                 <StepLabel>Memorize</StepLabel>
-            </Step>
+            </Step> */}
         </Stepper>
     )
 }

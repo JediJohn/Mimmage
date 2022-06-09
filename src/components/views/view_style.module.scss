@@ -6,8 +6,6 @@ $secondary-light-blue: #DFEDF1;
 
 $segment-view-width: 20vw;
 
-$content-height: 60vh;
-
 $vertical-line-margin: 2rem;
 $vertical-line-width: .15rem;
 
@@ -30,4 +28,8 @@ $vertical-line-width: .15rem;
     height:2em;
     vertical-align: middle;
     display: inline-block;
+}
+
+.createInputStack {
+    margin: 0 5rem;
 }
