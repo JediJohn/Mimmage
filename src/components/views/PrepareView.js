@@ -20,11 +20,17 @@ const PrepareView = () => {
         }
     }, [board_id])
 
+    const setTextDivisionsArray = async (newTextDivs) => {
+        const result = await MemoryBoardAPI.setTextDivisions(board_id, newTextDivs)
+        console.log(result)
+    }
+
     return (
         <SideBySideLayout
             OverBar={PrepareOverBar}
             TextSection={PrepareTextSection}
             textDivisions={textDivisions}
+            setTextDivisionsArray={setTextDivisionsArray}
             UnderBar={PrepareUnderBar}></SideBySideLayout>
     )
 }

@@ -2,7 +2,6 @@ import { useState, useEffect, useRef, useLayoutEffect } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { ReactSortable } from "react-sortablejs";
 import randomColor from "randomcolor";
-import { setTextDivisionsArray } from '../../redux/reducers/textDivisionsSlice.reducer'
 import { setTextDivisionsCompleted} from '../../redux/reducers/textDivisionsSlice.reducer'
 
 import styles from './widget_style.module.scss'
@@ -13,13 +12,13 @@ export const TEXT_SECTION_BORDER_RADIUS = "4px"
 const INIT_KEY = -1
 
 
-const PrepareTextSection = () => {
+const PrepareTextSection = ({textDivisions, setTextDivisionsArray}) => {
   const [sortablePassage, setSortablePassage] = useState([]);
   const [segmentIntervals, setSegmentIntervals] = useState([])
   const [activeSeparator, setActiveSeparator] = useState(INIT_KEY);
   const [currColor, setCurrColor] = useState(INIT_COLOR)
 
-  const textDivisions = useSelector((state) => state.textDivisions.value)
+  // const textDivisions = useSelector((state) => state.textDivisions.value)
   const prepareTextDivisionsToReset = useSelector((state) => state.inputText.reset)
   const inputText = useSelector((state) => state.inputText.text)
   
@@ -75,7 +74,7 @@ const PrepareTextSection = () => {
       text: intervalArr.map(item => item.text).join(" ")
     }]
     setSegmentIntervals(intervals)
-    dispatch(setTextDivisionsArray(textDivisionStrings))
+    setTextDivisionsArray(textDivisionStrings)
     if(id === sortablePassage.length - 2){
       // Completed highlighting the entire passage
       dispatch(setTextDivisionsCompleted(true))
@@ -117,7 +116,7 @@ const PrepareTextSection = () => {
     setSegmentIntervals([])
     setActiveSeparator(INIT_KEY)
     setCurrColor(INIT_COLOR)
-    dispatch(setTextDivisionsArray([]))
+    setTextDivisionsArray([])
     dispatch(setTextDivisionsCompleted(false))
     initPassageArray()
 

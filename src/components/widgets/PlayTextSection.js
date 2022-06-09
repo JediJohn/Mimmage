@@ -8,9 +8,9 @@ import { TEXT_SECTION_BORDER_RADIUS } from './PrepareTextSection'
 import styles from './widget_style.module.scss'
 
 
-const PlayTextSection = () => {
+const PlayTextSection = ({textDivisions}) => {
 
-    const textDivisions = useSelector((state) => state.textDivisions.value)
+    // const textDivisions = useSelector((state) => state.textDivisions.value)
     const activePlaySegment = useSelector((state) => state.activePlaySegment.value)
     const repeatsPerSegment = useSelector((state) => state.repeatsPerSegment.value)
     const playbackSpeed = useSelector((state) => state.playbackSpeed.value)

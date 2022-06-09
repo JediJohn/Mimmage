@@ -8,7 +8,7 @@ const SideBySideLayout = ({ OverBar, TextSection, textDivisions, UnderBar, setTe
             <div className={styles.contentSection}>
                 <MemSegments textDivisions={textDivisions} setTextDivisionsArray={setTextDivisionsArray} />
                 <div className={styles.verticalLine}></div>
-                <TextSection textDivisions={textDivisions} />
+                <TextSection textDivisions={textDivisions} setTextDivisionsArray={setTextDivisionsArray} />
             </div>
             <UnderBar></UnderBar>
         </div>
